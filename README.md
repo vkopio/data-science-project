@@ -1,30 +1,20 @@
-Python-template
-===============
-[![Build Status](https://travis-ci.org/osakunta/python-template.svg?branch=master)](https://travis-ci.org/osakunta/python-template)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a7b1e223cd874c41a12211c148620171)](https://www.codacy.com/app/Osakunta/python-template?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=osakunta/python-template&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/a7b1e223cd874c41a12211c148620171)](https://www.codacy.com/app/Osakunta/python-template?utm_source=github.com&utm_medium=referral&utm_content=osakunta/python-template&utm_campaign=Badge_Coverage)
+Data Science Project
+====================
+[![Build Status](https://travis-ci.org/vkopio/data-science-project.svg?branch=master)](https://travis-ci.org/vkopio/data-science-project)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/11a22512c78d4da6a857c2b49edaa6d7)](https://www.codacy.com/manual/V-Kopio/data-science-project?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=vkopio/data-science-project&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/11a22512c78d4da6a857c2b49edaa6d7)](https://www.codacy.com/manual/V-Kopio/data-science-project?utm_source=github.com&utm_medium=referral&utm_content=vkopio/data-science-project&utm_campaign=Badge_Coverage)
 
-This repository is a generic template for Python projects.
+This repository contains the Introduction to Data Science course project.
 
-Setting up CI
--------------
-This project template uses Travis as a CI pipeline and Codacy for quality and coverage metrics. Travis also builds a
-Docker image and pushes it to Docker Hub so Docker Hub credentials are needed.
+Setup development environment
+-----------------------------
 
-To get the newly initialized project configured, add it to [Travis](https://travis-ci.org/account/repositories) and
-[Codacy](https://app.codacy.com/wizard/projects). After that, go to the project view in Codacy and choose
-`Settings > Integrations > Add integration > Project API` and click the `Settings` button of the newly created Project
-API. Travis needs the `Project API Token` to upload coverage data to Codacy.
+The project uses Python 3.7 with a virtualenv. The following commands should setup the environment for Debian-based
+Linux distributions:
 
-Encrypt the needed environment variables to `.travis.yml` with the following commands:
-
-    travis encrypt CODACY_PROJECT_TOKEN=[] --add
-    travis encrypt DOCKER_USERNAME=[] --add
-    travis encrypt DOCKER_PASSWORD=[] --add
-
-If you want to add Slack notifications, use:
-
-    travis encrypt [SLACK_TOKEN] --add notifications.slack
-
-You should also change the badges at the top of this `README` to the ones that are generated for your project. Travis
-badge can be found next to the project name and Codacy badges are in the project settings.
+	sudo apt update
+	sudo apt install -y python3.7
+	virtualenv --python=/usr/bin/python3.7 venv
+	. venv/bin/activate
+	pip install pipenv
+	pipenv install --dev
