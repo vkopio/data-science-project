@@ -3,10 +3,10 @@ import pandas
 import matplotlib.pyplot as plt
  
 #set up the countries I want
-countries = ["CL","UY","HU"]
+countries = ["CL","UY","HU"]  #check for differnt indictors code: http://api.worldbank.org/v2/country
  
 #set up the indicator I want (just build up the dict if you want more than one)
-indicators = {'NY.GNP.PCAP.CD':'GNI per Capita'}
+indicators = {'NY.GNP.PCAP.CD':'GNI per Capita'}  #check for differnt indictors code: http://api.worldbank.org/v2/indicator
  
 #grab indicators above for countires above and load into data frame
 df = wbdata.get_dataframe(indicators, country=countries, convert_date=False)
