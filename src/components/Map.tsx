@@ -3,13 +3,12 @@ import {
     Map, 
     GoogleApiWrapper, 
     MapProps,
-    mapEventHandler,
     ProvidedProps, 
     GoogleApiOptions 
 } from 'google-maps-react'
 
 const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
-    const loadGeoJSON: mapEventHandler = (
+    const loadGeoJSON: any = (
         mapProps: MapProps | undefined,
         map: google.maps.Map | undefined
     ) => {
