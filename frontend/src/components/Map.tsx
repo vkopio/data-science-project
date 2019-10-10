@@ -14,7 +14,7 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
         map: google.maps.Map | undefined
     ) => {
         if (map !== undefined) {
-            map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/google.json')
+            map.data.loadGeoJson('data.geo.json')
         }
     }
 
