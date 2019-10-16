@@ -14,6 +14,16 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
     ) => {
         if (map !== undefined) {
             map.data.loadGeoJson('https://cors-anywhere.herokuapp.com/https://drive.google.com/uc?id=18eMOVtiPDEq_kAud1Io5PkzXmYMqvdZh&export=view')
+
+            map.data.setStyle(function(feature) {
+
+              return {
+                fillColor: feature.getProperty('fillColor'),
+                fillOpacity: 0.6,
+                strokeWeight: 0,
+              }
+            })
+
         }
     }
 
