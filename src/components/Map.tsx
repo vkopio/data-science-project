@@ -13,7 +13,7 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
         map: google.maps.Map | undefined
     ) => {
         if (map !== undefined) {
-            map.data.loadGeoJson('data.geo.json')
+            map.data.loadGeoJson('https://cors-anywhere.herokuapp.com/https://drive.google.com/uc?id=18eMOVtiPDEq_kAud1Io5PkzXmYMqvdZh&export=view')
         }
     }
 
