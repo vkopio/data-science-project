@@ -21,3 +21,17 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+.ui.menu {
+  margin: 0;
+  padding-top: 2px;
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom-color: white;
+  text-transform: uppercase;
+}
+
+.ui.secondary.pointing.menu .item {
+  text-transform: uppercase;
+}
