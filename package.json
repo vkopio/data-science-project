@@ -2,7 +2,9 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "engines" : { "node" : "^10.16.0" },
+  "engines": {
+    "node": "^10.16.0"
+  },
   "dependencies": {
     "@types/google-maps-react": "^2.0.1",
     "@types/jest": "24.0.18",
@@ -13,6 +15,8 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.1",
     "typescript": "3.6.3"
   },
   "scripts": {
