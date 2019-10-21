@@ -23,16 +23,19 @@ for key in data:
     normalized_color = int(abs(data[key]['coefficient']/(max_coefficient - min_coefficient)) * 255)
     data[key]['fillColor'] = 'rgb(0, {}, 0)'.format(normalized_color)
 
-with open('countries.json') as geo_json_file, open('production.geo.json', 'w') as production:
-    geo_json = {}
+with open('countries.geojson') as geo_json_file, open('production.geo.json', 'w') as production:
+    geo_json = json.load(geo_json_file)
 
-    for row in geo_json_file:
-        geo_json = json.loads(row)
-        break
+    countries_with_data = {
+        "type": "FeatureCollection",
+        "features": []
+    }
 
-    for i, row in enumerate(geo_json["features"]):
-        country_code = row['properties']["sov_a3"]
+    for feature in geo_json["features"]:
+        country_code = feature['properties']["ISO_A3"]
+
         if country_code in data:
-            row['properties'].update(data[country_code])
+            feature['properties'].update(data[country_code])
+            countries_with_data["features"].append(feature)
 
-    production.write(json.dumps(geo_json))
+    production.write(json.dumps(countries_with_data))
