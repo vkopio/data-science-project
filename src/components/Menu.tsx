@@ -1,27 +1,24 @@
-import React, { useState } from 'react'
-import { Menu, MenuItemProps } from 'semantic-ui-react'
+import React from 'react'
+import { Menu } from 'semantic-ui-react'
 
-const HeaderMenu = () => {
-  const [ activeItem, setActiveItem ] = useState('home')
+interface MenuProps {
+  page: string
+  toPage: (page: string) => (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+}
 
-  const handleItemClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, { name }: MenuItemProps) => {
-    if (typeof name === 'string') {
-      setActiveItem(name)
-    }
-  }
-
+const HeaderMenu = (props: MenuProps) => {
     return (
         <Menu pointing secondary>
           <Menu.Item
             name='map the air'
-            active={activeItem === 'map the air'}
-            onClick={handleItemClick}
+            active={props.page === 'home'}
+            onClick={props.toPage('home')}
           />
           <Menu.Menu position='right'>
             <Menu.Item
               name='about'
-              active={activeItem === 'about'}
-              onClick={handleItemClick}
+              active={props.page === 'about'}
+              onClick={props.toPage('about')}
             />
           </Menu.Menu>
         </Menu>
