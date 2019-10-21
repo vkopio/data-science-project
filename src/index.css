@@ -35,3 +35,14 @@ html, body {
 .ui.secondary.pointing.menu .item {
   text-transform: uppercase;
 }
+
+#info-box {
+  position: absolute;
+  left: 10px;
+  bottom: 30px;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0 5px #777;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

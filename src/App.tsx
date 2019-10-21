@@ -11,10 +11,20 @@ const App: React.FC = () => {
     setPage(page)
   }
 
+  const style: React.CSSProperties = {
+    position: 'relative',
+    height: 'calc(100% - 42px)',
+  }
+
   const content = () => {
     switch (page) {
       case 'home':
-        return <Map apiKey="AIzaSyBGTz8L0Ws5kvaUz79PwRw-eDhcygn9WE8" />
+        return (
+          <div style={style}>
+            <Map apiKey="AIzaSyBGTz8L0Ws5kvaUz79PwRw-eDhcygn9WE8" />
+            <div id="info-box"></div>
+          </div>
+        )
       case 'about':
         return <About />
     }

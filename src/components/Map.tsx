@@ -13,17 +13,34 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
         map: google.maps.Map | undefined
     ) => {
         if (map !== undefined) {
+            const infoBox = document.getElementById('info-box')
+
             map.data.loadGeoJson('https://cors-anywhere.herokuapp.com/https://drive.google.com/uc?id=18eMOVtiPDEq_kAud1Io5PkzXmYMqvdZh&export=view')
 
             map.data.setStyle(function(feature) {
-
               return {
                 fillColor: feature.getProperty('fillColor'),
-                fillOpacity: 0.6,
+                fillOpacity: 0.7,
                 strokeWeight: 0,
               }
             })
 
+            map.data.addListener('mouseover', function(event) {
+              const country = event.feature.getProperty('ADMIN')
+              const value = event.feature.getProperty('coefficient')
+
+              if (infoBox) {
+                infoBox.textContent = `${country}: ${value}`;
+                infoBox.setAttribute('style', "padding: 10px;")
+              }
+            });
+
+            map.data.addListener('mouseout', function(event) {
+              if (infoBox) {
+                infoBox.textContent = ''
+                infoBox.removeAttribute('style')
+              }
+            });
         }
     }
 
