@@ -17,8 +17,8 @@ with open('countries_air_quality_data.csv') as csv_file:
 
 min_coefficient = data[min(data.keys(), key=(lambda k: data[k]['coefficient']))]['coefficient']
 max_coefficient = data[max(data.keys(), key=(lambda k: data[k]['coefficient']))]['coefficient']
-min_coefficient_gdp = data[min(data.keys(), key=(lambda k: data[k]['coefficient_gdp']))]['coefficient']
-max_coefficient_gdp = data[max(data.keys(), key=(lambda k: data[k]['coefficient_gdp']))]['coefficient']
+min_coefficient_gdp = data[min(data.keys(), key=(lambda k: data[k]['coefficient_gdp']))]['coefficient_gdp']
+max_coefficient_gdp = data[max(data.keys(), key=(lambda k: data[k]['coefficient_gdp']))]['coefficient_gdp']
 
 # Add color based on normalized coefficient
 for key in data:
