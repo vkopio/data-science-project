@@ -31,6 +31,8 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
         <Map
           google={props.google}
           zoom={6}
+          maxZoom={6}
+          minZoom={3}
           initialCenter={{lat: 60.171, lng: 24.937}}
           onReady={loadGeoJSON}
         />
