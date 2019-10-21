@@ -7,27 +7,30 @@ import {
     GoogleApiOptions 
 } from 'google-maps-react'
 
-const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
+interface Data {
+  data: string
+}
+
+const MapContainer = (props: ProvidedProps & GoogleApiOptions & Data): any => {
     const loadGeoJSON: any = (
         mapProps: MapProps | undefined,
         map: google.maps.Map | undefined
     ) => {
         if (map !== undefined) {
             const infoBox = document.getElementById('info-box')
-
             map.data.loadGeoJson('https://cors-anywhere.herokuapp.com/https://drive.google.com/uc?id=18eMOVtiPDEq_kAud1Io5PkzXmYMqvdZh&export=view')
 
-            map.data.setStyle(function(feature) {
+            map.data.setStyle((feature) => {
               return {
-                fillColor: feature.getProperty('coefficientColor'),
+                fillColor: feature.getProperty(`${props.data}Color`),
                 fillOpacity: 0.7,
                 strokeWeight: 0,
               }
             })
 
-            map.data.addListener('mouseover', function(event) {
+            map.data.addListener('mouseover', (event) => {
               const country = event.feature.getProperty('ADMIN')
-              const value = event.feature.getProperty('coefficient')
+              const value = event.feature.getProperty(props.data)
 
               if (infoBox) {
                 infoBox.textContent = `${country}: ${value}`;
@@ -35,7 +38,7 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
               }
             });
 
-            map.data.addListener('mouseout', function(event) {
+            map.data.addListener('mouseout', (event) => {
               if (infoBox) {
                 infoBox.textContent = ''
                 infoBox.removeAttribute('style')
@@ -44,7 +47,8 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
         }
     }
 
-    return (
+    const renderMap = (value: string) => {
+      return (
         <Map
           google={props.google}
           zoom={6}
@@ -52,8 +56,12 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
           minZoom={3}
           initialCenter={{lat: 60.171, lng: 24.937}}
           onReady={loadGeoJSON}
+          onClick={loadGeoJSON}
         />
-    );
+    )
+    }
+
+    return renderMap(props.data)
 }
 
 export default GoogleApiWrapper(
