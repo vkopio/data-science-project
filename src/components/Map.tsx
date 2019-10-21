@@ -19,7 +19,7 @@ const MapContainer = (props: ProvidedProps & GoogleApiOptions): any => {
 
             map.data.setStyle(function(feature) {
               return {
-                fillColor: feature.getProperty('fillColor'),
+                fillColor: feature.getProperty('coefficientColor'),
                 fillOpacity: 0.7,
                 strokeWeight: 0,
               }

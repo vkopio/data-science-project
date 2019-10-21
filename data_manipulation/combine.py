@@ -21,7 +21,7 @@ max_coefficient = max(coefficients)
 # Add color based on normalized coefficient
 for key in data:
     normalized_color = int(abs(data[key]['coefficient']/(max_coefficient - min_coefficient)) * 255)
-    data[key]['fillColor'] = 'rgb(0, {}, 0)'.format(normalized_color)
+    data[key]['coefficientColor'] = 'rgb(0, {}, 0)'.format(normalized_color)
 
 with open('countries.geojson') as geo_json_file, open('production.geo.json', 'w') as production:
     geo_json = json.load(geo_json_file)
