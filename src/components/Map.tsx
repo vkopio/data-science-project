@@ -24,9 +24,9 @@ const initMapAndData = () => {
   }
 
 const Map = (props: Data): any => {
-  const infoBox = document.getElementById('info-box')
-
   const initMap = () => {
+    const infoBox = document.getElementById('info-box')
+
     if (!map) {
       map = initMapAndData()
     }
