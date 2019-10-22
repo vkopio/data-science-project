@@ -27,8 +27,7 @@ const App: React.FC = () => {
       case 'home':
         return (
           <div style={style}>
-            <Map data={data} apiKey="AIzaSyBGTz8L0Ws5kvaUz79PwRw-eDhcygn9WE8" />
-            <div id="info-box"></div>
+            <Map data={data} />
           </div>
         )
       case 'about':
