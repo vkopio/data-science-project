@@ -28,7 +28,7 @@ for key in data:
     normalized_color_gdp = int(abs(data[key]['coefficient_gdp'] / (max_coefficient_gdp - min_coefficient_gdp)) * 255)
     data[key]['coefficient_gdpColor'] = 'rgb({}, 0, 0)'.format(normalized_color_gdp)
 
-with open('countries.geojson') as geo_json_file, open('production.geo.json', 'w') as production:
+with open('countries.geojson') as geo_json_file, open('../public/production.geo.json', 'w') as production:
     geo_json = json.load(geo_json_file)
 
     countries_with_data = {
