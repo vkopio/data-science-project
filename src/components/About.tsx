@@ -18,8 +18,7 @@ const About = () => {
                 
             We will fit real-time PM2.5 data to estimate the corresponding social metrics in
             our future release! Stay tuned!
-            
-            Contact:
+
 
             </p>
         </Container>
