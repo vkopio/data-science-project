@@ -17,28 +17,27 @@ const App: React.FC = () => {
     setData(newData)
   }
 
-  const style: React.CSSProperties = {
+  const mapStyle: React.CSSProperties = {
     position: 'relative',
     height: 'calc(100% - 42px)',
+    display: page === 'home' ? 'block' : 'none',
   }
 
-  const content = () => {
-    switch (page) {
-      case 'home':
-        return (
-          <div style={style}>
-            <Map data={data} />
-          </div>
-        )
-      case 'about':
-        return <About />
-    }
+  const aboutStyle: React.CSSProperties = {
+    display: page === 'about' ? 'block' : 'none',
   }
 
   return (
     <>
       <Menu page={page} toPage={toPage} data={data} changeData={changeData} />
-      {content()}
+
+      <div style={mapStyle}>
+        <Map data={data} />
+      </div>
+
+      <div style={aboutStyle}>
+        <About />
+      </div>
     </>
   );
 }
