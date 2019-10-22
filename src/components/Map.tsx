@@ -13,9 +13,10 @@ interface Data {
 const initMapAndData = () => {
     const map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 60.171, lng: 24.937},
-      zoom: 6,
+      zoom: 4,
       maxZoom: 6,
-      minZoom: 3
+      minZoom: 3,
+      streetViewControl: false,
     })
 
     map.data.loadGeoJson('production.geo.json')
