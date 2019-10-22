@@ -25,6 +25,14 @@ const initMapAndData = () => {
   }
 
 const Map = (props: Data): any => {
+  const unit = (data: string) => {
+    if (data === 'coefficient') {
+      return '(life expectancy / annual PM2.5 mass concentration)'
+    } else {
+      return '(GDP / annual PM2.5 mass concentration)'
+    }
+  }
+
   const initMap = () => {
     const infoBox = document.getElementById('info-box')
 
@@ -45,7 +53,7 @@ const Map = (props: Data): any => {
       const value = event.feature.getProperty(props.data)
 
       if (infoBox) {
-        infoBox.textContent = `${country}: ${value}`;
+        infoBox.textContent = `${country}: ${value} ${unit(props.data)}`;
         infoBox.setAttribute('style', "padding: 10px;")
       }
     });
