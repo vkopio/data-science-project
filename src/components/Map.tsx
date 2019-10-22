@@ -18,7 +18,7 @@ const initMapAndData = () => {
       minZoom: 3
     })
 
-    map.data.loadGeoJson('https://cors-anywhere.herokuapp.com/https://drive.google.com/uc?id=18eMOVtiPDEq_kAud1Io5PkzXmYMqvdZh&export=view')
+    map.data.loadGeoJson('production.geo.json')
 
     return map
   }
